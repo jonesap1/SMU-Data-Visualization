@@ -5,9 +5,11 @@ import numpy as np
 import requests
 import time
 from scipy.stats import linregress
+import json
 
 # Import API key
 from api_keys import weather_api_key
+API_KEY=weather_api_key
 
 # Incorporated citipy to determine city based on latitude and longitude
 from citipy import citipy
@@ -37,4 +39,49 @@ for lat_lng in lat_lngs:
         cities.append(city)
 
 # Print the city count to confirm sufficient count
-len(cities)
+print(len(cities))
+totcitydata=(len(cities))
+if len(cities)>500:
+    print("Okay to Proceed")
+else:
+    print("Need More City Data")
+l = "http://api.openweathermap.org/data/2.5/weather?"
+url = "http://api.openweathermap.org/data/2.5/weather?units=Imperial&APPID=" + API_KEY
+response = requests.get(f"{url}&q={city}").json() 
+response
+
+#Json weather check for each city and print log
+city_name = []
+clouds = []
+country = []
+wind_speed = []
+date = []
+latitude = []
+longitude = []
+max_temp = []
+humidity = []
+
+counter=1
+print(f"Weather Data Processing Initialization")
+print(f"______________________________________")
+url = "http://api.openweathermap.org/data/2.5/weather?units=Imperial&APPID=" + API_KEY
+for city in cities:
+    try:
+        response=requests.get(f"{url}&q={city}").json()
+        city_name.append(response["name"])
+        clouds.append(response["clouds"]["all"])
+        country.append(response["sys"]["country"])
+        date.append(response["dt"])
+        humidity.append(response["main"]["humidity"])
+        max_temp.append(response["main"]["temp_max"])
+        latitude.append(response["coord"]["lat"])
+        longitude.append(response["coord"]["lon"])
+        wind_speed.append(response["wind"]["speed"])
+        city_record = response["name"]
+        print(f"Processing Record {counter} of {totcitydata} | {city_record}")
+        counter=counter+1
+
+# If no record found "skip" to next call
+    except:
+        print("City not found. Skipping this location...")
+    continue
