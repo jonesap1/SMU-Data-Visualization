@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: citipy
+Version: 0.0.5
+Summary: Look for nearest city with geo coordinates.
+Home-page: https://github.com/wingchen/citipy
+Author: Winston Chen
+Author-email: darwing.chen@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: world cities,cities,city
+Platform: UNKNOWN

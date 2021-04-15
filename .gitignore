@@ -27,3 +27,6 @@
 06 - Python - APIs/api_keys.py
 06 - Python - APIs/WeatherPY/api_keys.py
 06 - Python - APIs/WeatherPY/__pycache__/api_keys.cpython-38.pyc
+.DS_Store
+06 - Python - APIs/VacationPy/api_keys.py
+06 - Python - APIs/WeatherPY/__pycache__/api_keys.cpython-39.pyc
