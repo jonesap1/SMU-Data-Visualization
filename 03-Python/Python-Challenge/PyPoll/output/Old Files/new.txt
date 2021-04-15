@@ -1,0 +1,15 @@
+🗳ELECTION RESULTS
+--------------------------------------
+📨TOTAL BALOTS CAST: 3521001
+--------------------------------------
+🧾 ELECTION SUMMARY
+           Voter Count % OF VOTES
+Candidate                        
+Correy          704200     20.00%
+Khan           2218231     63.00%
+Li              492940     14.00%
+O'Tooley        105630      3.00%
+--------------------------------------
+🎉CONGRATULATIONS TO THE WINNER: Khan
+--------------------------------------
+🗳POPULAR VOTE: 2218231
