@@ -21,7 +21,7 @@ bank_raw_df = pd.read_csv(raw_data)
 #print(total_months)
 
 bank_rows = len(bank_raw_df["Date"].unique())-1
-#print('📆Total Months: ',bank_rows)
+print('📆Total Months: ',bank_rows)
 
 
 # NET PROFIT/LOSSES"
@@ -32,7 +32,7 @@ bank_raw_df.dtypes
 #total_profloss = sum(bank_raw_df['Profit/Losses'])
 total_profloss = bank_raw_df["Profit/Losses"].sum()
 currency_profloss="${:,.2f}".format(total_profloss)
-#print('💰TOTAL: ', currency_profloss)
+print('💰TOTAL: $', currency_profloss)
 
 #CHANGES IN PROFIT LOSS OER THE PERIOD  
 #total_changes = bank_raw_df["Profit/Losses"].mean()
@@ -40,7 +40,7 @@ avg_changes = bank_raw_df["Profit/Losses"].diff(periods=1)
 bank_raw_df['Daily Change'] = avg_changes
 total_changes = bank_raw_df["Daily Change"].mean()
 currency_changes="${:,.2f}".format(total_changes)
-#print('💸 AVERAGE CHANGE: ',currency_changes)
+print('💸 AVERAGE CHANGE: ',currency_changes)
 
 
 #MAX & MIN CHANGE BY DATE
@@ -50,7 +50,7 @@ maxdate = (bank_raw_df["Daily Change"] == changemax)
 maxmonth = bank_raw_df[maxdate].Date.values[0]
 #print(maxmonth)
 currency_changemax="${:,.2f}".format(changemax)
-#print("🔺GREATEST INCREASE IN PROFITS: ",maxmonth, currency_changemax)
+print("🔺GREATEST INCREASE IN PROFITS: ",maxmonth, currency_changemax)
 
 
 changemin = bank_raw_df["Daily Change"].min()
@@ -58,15 +58,11 @@ changemin = bank_raw_df["Daily Change"].min()
 mindate = (bank_raw_df["Daily Change"] == changemin)
 minmonth = bank_raw_df[mindate].Date.values[0]
 currency_changemin="${:,.2f}".format(changemin)
-#print("🔻GREATEST DECREASE IN PROFITS: ",minmonth, currency_changemin)
+print("🔻GREATEST DECREASE IN PROFITS: ",minmonth, currency_changemin)
 #print(minmonth)
 
       
-summary = str(f'📆TOTAL MONTHS: {bank_rows}\n--------------------------------------\n💰TOTAL PROFIT/LOSSES: {currency_profloss}\n--------------------------------------\n💸 AVERAGE CHANGE: {currency_changes}\n🔺GREATEST INCREASE IN PROFITS: {maxmonth} {currency_changemax}\n--------------------------------------\n🔻GREATEST DECREASE IN PROFITS: {minmonth} {currency_changemin}\n--------------------------------------\n')
-fileout = open("../PyBank/output/PyBank.txt","w") 
-fileout.write(summary)
-print(summary)
-
+   
 
 #bank_raw_df=bank_raw_df.sort_values("Daily Change")
 #bank_raw_df=bank_raw_df.reset_index(drop=True)
@@ -83,26 +79,11 @@ print(summary)
 #print(datetime.strftime(datetime.strptime(s, '%b %Y'), '%d/%m/%Y'))
    
 #PRINT SUMMARY ANALYSIS
-#summary_df = pd.dataframe(Summary_df{"Total Months": [bank_rows],"Total Profit/Losses": [currency_profloss], }
+#summary = summary{f'FINANCIAL ANALYSIS\n________________________\n
+                 # "Total Months": {lenbank_rows], "Total Profit/Losses": [total_profloss]}
 #summary_df=pd.DataFrame(data=summary)
 #summary_df.head()
-#import os
-#import csv
 
-# Specify the file to write to
-#output_path = os.path.join("..","output", "new.csv")
 
-# Open the file using "write" mode. Specify the variable to hold the contents
-#with open(output_path, 'w', newline='') as csvfile:
 
-    # Initialize csv.writer
-#    csvwriter = csv.writer(csvfile, delimiter=',')
 
-    # Write the first row (column headers)
-
-#csvwriter.writerow(['📆Total Months: ','💰TOTAL: $', '💸 AVERAGE CHANGE: ', '🔺GREATEST INCREASE IN PROFITS: ', '🔻GREATEST DECREASE IN PROFITS: '])
-#data=([bank_rows,currency_profloss,currency_changes,(maxmonth + currency_changemax), (minmonth, currency_changemin )]
-#csvwriter.writerow([bank_rows,currency_profloss,currency_changes,(maxmonth + currency_changemax), (minmonth, currency_changemin)])
-
-#summary_df = pd.dataframe({rows:[data]})
-#summary_df.to_csv("FinancialSummary.csv", index=False, header=True)

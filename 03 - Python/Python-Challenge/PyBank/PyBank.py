@@ -34,7 +34,7 @@ total_profloss = bank_raw_df["Profit/Losses"].sum()
 currency_profloss="${:,.2f}".format(total_profloss)
 #print('💰TOTAL: ', currency_profloss)
 
-#CHANGES IN PROFIT LOSS OER THE PERIOD  
+#CHANGES IN PROFIT LOSS OER THE PERIOD
 #total_changes = bank_raw_df["Profit/Losses"].mean()
 avg_changes = bank_raw_df["Profit/Losses"].diff(periods=1)
 bank_raw_df['Daily Change'] = avg_changes
@@ -63,7 +63,7 @@ currency_changemin="${:,.2f}".format(changemin)
 
       
 summary = str(f'📆TOTAL MONTHS: {bank_rows}\n--------------------------------------\n💰TOTAL PROFIT/LOSSES: {currency_profloss}\n--------------------------------------\n💸 AVERAGE CHANGE: {currency_changes}\n🔺GREATEST INCREASE IN PROFITS: {maxmonth} {currency_changemax}\n--------------------------------------\n🔻GREATEST DECREASE IN PROFITS: {minmonth} {currency_changemin}\n--------------------------------------\n')
-fileout = open("../PyBank/output/pybank.txt","w") 
+fileout = open("../PyBank/output/new.txt","w")
 fileout.write(summary)
 print(summary)
 
