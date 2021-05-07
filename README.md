@@ -7,4 +7,6 @@
 04 - Pandas
 05 - MatPlotLab
 06 - Python - APIs
-
+07 - Project 1
+09 - SQL
+10 - Advanced Data Storage and Retrieval
